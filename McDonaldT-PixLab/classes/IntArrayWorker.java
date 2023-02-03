@@ -96,40 +96,52 @@ public class IntArrayWorker
             }
         }
         return largest;}
-            /**
-             * print the values in the array in rows and columns
-             */
-        public void print()
+
+    /**
+     * print the values in the array in rows and columns
+     */
+    public void print()
+    {
+        for (int row = 0; row < matrix.length; row++)
         {
-            for (int row = 0; row < matrix.length; row++)
+            for (int col = 0; col < matrix[0].length; col++)
             {
-                for (int col = 0; col < matrix[0].length; col++)
-                {
-                    System.out.print( matrix[row][col] + " " );
-                }
-                System.out.println();
+                System.out.print( matrix[row][col] + " " );
             }
             System.out.println();
         }
+        System.out.println();
+    }
 
-        /** 
-         * fill the array with a pattern
-         */
-        public void fillPattern1()
+    /** 
+     * fill the array with a pattern
+     */
+    public void fillPattern1()
+    {
+        for (int row = 0; row < matrix.length; row++)
         {
-            for (int row = 0; row < matrix.length; row++)
+            for (int col = 0; col < matrix[0].length; 
+            col++)
             {
-                for (int col = 0; col < matrix[0].length; 
-                col++)
-                {
-                    if (row < col)
-                        matrix[row][col] = 1;
-                    else if (row == col)
-                        matrix[row][col] = 2;
-                    else
-                        matrix[row][col] = 3;
-                }
+                if (row < col)
+                    matrix[row][col] = 1;
+                else if (row == col)
+                    matrix[row][col] = 2;
+                else
+                    matrix[row][col] = 3;
             }
         }
-
     }
+
+    public int getColTotal(int col)
+    {
+        int total = 0;
+
+        for (int[] row : matrix)
+        {
+            total += row[col];
+        }
+
+        return total;
+    }
+}
